@@ -30,13 +30,14 @@ Include in jsx in place of image _leave off .jpg_
 ```
 
 **Props**
-| Prop Name | Type - Description |
-| --- | --- |
-| srcProp | String (**Required**) - Path to images |
-| altProp | String (**Required**) - Alt Text |
-| classProp | String - Optional Classname |
-| onClickProp | Function - Optional onClick callback |
-| refProp | Ref - Optional Ref |
-| ariaHidden | Boolean - Optional Hide from Accessibility software |
+
+| Prop Name   | Type - Description                                                                  |
+| ----------- | ----------------------------------------------------------------------------------- |
+| srcProp     | String (**Required**) - Path to images                                              |
+| altProp     | String (**Required**) - Alt Text                                                    |
+| classProp   | String - Optional Classname                                                         |
+| onClickProp | Function - Optional onClick callback                                                |
+| refProp     | Ref - Optional Ref                                                                  |
+| ariaHidden  | Boolean - Optional Hide from Accessibility software                                 |
 | imageWidths | Array - Optional Array of integers for custom image widths (replaces default array) |
-| noStyles | Boolean - Optionally disable default styles (max-height: 100%;, max-width: 100%;) |
+| noStyles    | Boolean - Optionally disable default styles (max-height: 100%;, max-width: 100%;)   |
