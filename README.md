@@ -41,3 +41,42 @@ Include in jsx in place of image _leave off .jpg_
 | ariaHidden  | Boolean - Optional Hide from Accessibility software                                 |
 | imageWidths | Array - Optional Array of integers for custom image widths (replaces default array) |
 | noStyles    | Boolean - Optionally disable default styles (max-height: 100%;, max-width: 100%;)   |
+
+You can automate the image compression process using [ImageMagick](https://www.imagemagick.org/script/download.php) and adding these scripts to your .bashrc file
+
+```
+# Resize Multiple JPG's (Requires Filename as Argument)
+# Resize Single JPG's = Provide Width as Second Argument
+
+resizeJPG() {
+  FILE_NAME=$1
+  SIZES="400 600 800 1100 1500 2000 2500"
+  BASE="${FILE_NAME%.*}"
+
+  if [ "$#" -ne 2 ]
+  then
+    echo "Resizing Multiple Sized JPG's"
+    for SIZE in $SIZES
+    do
+      NEW_FILE="${BASE}_${SIZE}.jpg"
+      convert $1 -sampling-factor 4:2:0 -strip -resize $SIZE -quality 70 $NEW_FILE
+      echo "Filename: $NEW_FILE, Width: $SIZE pixels"
+    done
+  else
+    echo "Resizing Single Sized JPG"
+    NEW_FILE="${BASE}_$2.jpg"
+    convert $1 -sampling-factor 4:2:0 -strip -resize $2 -quality 70 $NEW_FILE
+    echo "Filename: $NEW_FILE, Width: $2"
+  fi
+}
+
+# Resize All JPG's = No Arguments
+
+resizeALL(){
+  for file in *.jpg; do
+    if [ -f "$file" ]; then
+        resizeJPG $file;
+    fi
+  done
+}
+```
