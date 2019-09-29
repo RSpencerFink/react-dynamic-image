@@ -42,7 +42,7 @@ Include in jsx in place of image _leave off .jpg_
 | imageWidths | Array - Optional Array of integers for custom image widths (replaces default array) |
 | noStyles    | Boolean - Optionally disable default styles (max-height: 100%;, max-width: 100%;)   |
 
-You can automate the image compression process using [ImageMagick](https://www.imagemagick.org/script/download.php) and adding these scripts to your .bashrc file
+You can automate the image compression process using [ImageMagick](https://www.imagemagick.org/script/download.php) and adding these scripts to your `.bashrc` file
 
 ```
 # Resize Multiple JPG's (Requires Filename as Argument)
