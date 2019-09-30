@@ -36,7 +36,7 @@ const DynamicImage = ({
     )
 }
 
-Image.propTypes = {
+DynamicImage.propTypes = {
     srcProp: PropTypes.string.isRequired,
     altProp: PropTypes.string.isRequired,
     noStyles: PropTypes.bool,
