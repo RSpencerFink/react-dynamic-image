@@ -36,6 +36,7 @@ Include in jsx in place of image _leave off .jpg_
 | srcProp     | String (**Required**) - Path to images                                              |
 | altProp     | String (**Required**) - Alt Text                                                    |
 | classProp   | String - Optional Classname                                                         |
+| public      | Boolean - Set true if images are located in the `public` folder                     |
 | onClickProp | Function - Optional onClick callback                                                |
 | refProp     | Ref - Optional Ref                                                                  |
 | ariaHidden  | Boolean - Optional Hide from Accessibility software                                 |
