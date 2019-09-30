@@ -17,7 +17,7 @@ const DynamicImage = ({
         const widthArray = imageWidths || defaultImageWidths
         return widthArray
             .map(width => {
-                return `${srcProp}_${width}.jpg ${width}`
+                return `${srcProp}_${width}.jpg ${width}w`
             })
             .join(', ')
     }
