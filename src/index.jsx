@@ -20,7 +20,7 @@ const DynamicImage = ({
       .map(width => {
         return public
           ? `${srcProp}_${width}.jpg ${width}w`
-          : require(`${srcProp}_${width}.jpg ${width}w`);
+          : `${require(`${srcProp}_${width}.jpg`)} ${width}w`;
       })
       .join(', ');
   };
