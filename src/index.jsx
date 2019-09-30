@@ -11,13 +11,21 @@ const DynamicImage = ({
     refProp,
     imageWidths,
 }) => {
-    const defaultImageWidths = [400, 600, 800, 1100, 1500, 2000, 2500]
+    const defaultImageWidths = [
+        `400w`,
+        `600w`,
+        `800w`,
+        `1100w`,
+        `1500w`,
+        `2000w`,
+        `2500w`,
+    ]
 
     const generateSrcSet = () => {
         const widthArray = imageWidths || defaultImageWidths
         return widthArray
             .map(width => {
-                return `${srcProp}_${width}.jpg ${width}w`
+                return `${srcProp}_${width}.jpg ${width}`
             })
             .join(', ')
     }
