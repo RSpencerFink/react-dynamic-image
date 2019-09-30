@@ -1,6 +1,6 @@
 {
   "name": "react-dynamic-image",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A lightweight component for cleanly and dynamically rendering srcSet images in react",
   "main": "./lib/index.js",
   "keywords": [
