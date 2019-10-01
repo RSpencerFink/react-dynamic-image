@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DynamicImage = ({
-  isPublic,
+  //   isPublic,
   noStyles,
   ariaHidden,
   srcProp,
@@ -12,6 +12,11 @@ const DynamicImage = ({
   refProp,
   imageWidths
 }) => {
+  //   const handleImports = (newSrc, width, ext) => {
+  //     const img = require(`${newSrc}_${width}${ext}`);
+  //     return `${img} ${width}w`;
+  //   };
+
   const defaultImageWidths = [400, 600, 800, 1100, 1500, 2000, 2500];
 
   const generateSrcSet = () => {
@@ -19,13 +24,11 @@ const DynamicImage = ({
     const widthArray = imageWidths || defaultImageWidths;
     const ext = re.exec(srcProp)[0];
     const newSrc = srcProp.replace(ext, '');
-    return widthArray
-      .map(width => {
-        return isPublic
-          ? `${newSrc}_${width}${ext} ${width}w`
-          : `${require(`${newSrc}_${width}${ext}`)} ${width}w`;
-      })
-      .join(', ');
+    console.log(newSrc);
+    const srcSetArray = widthArray.map(width => {
+      `${newSrc}_${width}${ext} ${width}w`;
+    });
+    return srcSetArray.join(', ');
   };
 
   return (
@@ -45,11 +48,11 @@ const DynamicImage = ({
 DynamicImage.propTypes = {
   srcProp: PropTypes.string.isRequired,
   altProp: PropTypes.string.isRequired,
-  isPublic: PropTypes.bool,
-  noStyles: PropTypes.bool,
-  ariaHidden: PropTypes.bool,
   classProp: PropTypes.string,
   onClickProp: PropTypes.func,
+  //   isPublic: PropTypes.bool,
+  noStyles: PropTypes.bool,
+  ariaHidden: PropTypes.bool,
   imageWidths: PropTypes.array,
   refProp: PropTypes.oneOfType([
     PropTypes.func,

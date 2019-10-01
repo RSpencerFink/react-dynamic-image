@@ -37,9 +37,10 @@ Include in jsx in place of image
 | onClickProp | Function - Optional onClick callback                                                |
 | refProp     | Ref - Optional Ref                                                                  |
 | imageWidths | Array - Optional Array of integers for custom image widths (replaces default array) |
-| isPublic    | Boolean - Set true if images are located in the `public` folder                     |
 | ariaHidden  | Boolean - Optional Hide from Accessibility software                                 |
 | noStyles    | Boolean - Optionally disable default styles (max-height: 100%;, max-width: 100%;)   |
+
+<!-- | isPublic    | Boolean - Set true if images are located in the `public` folder                     | -->
 
 You can automate the image compression process using [ImageMagick](https://www.imagemagick.org/script/download.php) and adding these scripts to your `.bashrc` file
 
@@ -85,4 +86,5 @@ Enjoy!
 **To Do:**
 
 - [x] Add support for filetypes beyond .jpg
+- [ ] Add support for images in the src folder
 - [ ] Add more event listener support
