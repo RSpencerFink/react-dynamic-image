@@ -12,19 +12,17 @@ To Start:
 
 Place compressed images in same folder as original and name to these conventions.
 
-**ImageName_ImageWidth.jpg**
-
-> ie: _portrait_400.jpg_
+**ImageName_ImageWidth.ext**
 
 _default image widths are [400, 600, 800, 1100, 1500, 2000, 2500]px, but can be changed using the **imageWidths** prop and passing an array of integers_
 
 ![example file structure](https://i.imgur.com/GzCo7gO.png)
 
-Include in jsx in place of image _leave off .jpg_
+Include in jsx in place of image
 
 ```
 <DynamicImage
-    srcProp="/images/example"
+    srcProp="/images/example.ext"
     altProp="example image"
 />
 ```
@@ -36,11 +34,11 @@ Include in jsx in place of image _leave off .jpg_
 | srcProp     | String (**Required**) - Path to images                                              |
 | altProp     | String (**Required**) - Alt Text                                                    |
 | classProp   | String - Optional Classname                                                         |
-| public      | Boolean - Set true if images are located in the `public` folder                     |
 | onClickProp | Function - Optional onClick callback                                                |
 | refProp     | Ref - Optional Ref                                                                  |
-| ariaHidden  | Boolean - Optional Hide from Accessibility software                                 |
 | imageWidths | Array - Optional Array of integers for custom image widths (replaces default array) |
+| isPublic    | Boolean - Set true if images are located in the `public` folder                     |
+| ariaHidden  | Boolean - Optional Hide from Accessibility software                                 |
 | noStyles    | Boolean - Optionally disable default styles (max-height: 100%;, max-width: 100%;)   |
 
 You can automate the image compression process using [ImageMagick](https://www.imagemagick.org/script/download.php) and adding these scripts to your `.bashrc` file
@@ -83,3 +81,8 @@ resizeALL(){
 ```
 
 Enjoy!
+
+**To Do:**
+
+- [x] Add support for filetypes beyond .jpg
+- [ ] Add more event listener support

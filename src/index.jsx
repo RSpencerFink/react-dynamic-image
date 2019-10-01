@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DynamicImage = ({
-  public,
+  isPublic,
   noStyles,
   ariaHidden,
   srcProp,
@@ -15,12 +15,15 @@ const DynamicImage = ({
   const defaultImageWidths = [400, 600, 800, 1100, 1500, 2000, 2500];
 
   const generateSrcSet = () => {
+    const re = /(?:\.([^.]+))?$/;
     const widthArray = imageWidths || defaultImageWidths;
+    const ext = re.exec(srcProp)[0];
+    const newSrc = srcProp.replace(ext, '');
     return widthArray
       .map(width => {
-        return public
-          ? `${srcProp}_${width}.jpg ${width}w`
-          : `${require(`${srcProp}_${width}.jpg`)} ${width}w`;
+        return isPublic
+          ? `${newSrc}_${width}${ext} ${width}w`
+          : `${require(`${newSrc}_${width}${ext}`)} ${width}w`;
       })
       .join(', ');
   };
@@ -28,7 +31,7 @@ const DynamicImage = ({
   return (
     <img
       style={noStyles ? {} : { maxWidth: '100%', maxHeight: '100%' }}
-      src={`${srcProp}.jpg`}
+      src={srcProp}
       srcSet={generateSrcSet()}
       alt={altProp}
       ref={refProp || null}
@@ -42,7 +45,7 @@ const DynamicImage = ({
 DynamicImage.propTypes = {
   srcProp: PropTypes.string.isRequired,
   altProp: PropTypes.string.isRequired,
-  public: PropTypes.bool,
+  isPublic: PropTypes.bool,
   noStyles: PropTypes.bool,
   ariaHidden: PropTypes.bool,
   classProp: PropTypes.string,
